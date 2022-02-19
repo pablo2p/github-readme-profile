@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import { GET_USER_INFO } from '../graphql/queries/profile';
 
 import client from '../middleware/apollo-client';
@@ -27,7 +27,7 @@ const Home: NextPage<{ user: IUser }> = ({ user }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { data: user } = await client.query({
     query: GET_USER_INFO,
     variables: {
