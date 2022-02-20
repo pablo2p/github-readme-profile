@@ -4,8 +4,8 @@ import drawError from '../../errors';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { username, bgColor, borderColor, fontColor } = req.query || {};
-  // UTF8 for text errors
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  // Drawing the page as an svg
+  res.setHeader('Content-Type', 'image/svg+xml');
 
   const queryInfos = Object.assign({
     username,
@@ -25,10 +25,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const cacheFinishInSevenDays = 60 * 60 * 24 * 7;
 
-  // Drawing the page as an svg
-  res.setHeader('Content-Type', 'image/svg+xml');
   // Cache Page
   res.setHeader('Cache-Control', `public, max-age=${cacheFinishInSevenDays}`);
 
+  // Draw Card
   res.send(DrawCard(queryInfos));
 }

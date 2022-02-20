@@ -6,7 +6,7 @@ function drawError({ message, code, ...queryInfos }: IError) {
   const { fontColor, bgColor, borderColor } = queryInfos || {};
 
   return `
-    <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none">
       <style>
         .alert { font: 600 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${fontColor} }
         .description { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #252525 }
