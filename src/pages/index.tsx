@@ -13,6 +13,7 @@ const Home: NextPage<{ user: IUser }> = ({ user }) => {
   };
 
   console.log(user);
+
   return (
     <section>
       <h5>{user.name} Profile</h5>
